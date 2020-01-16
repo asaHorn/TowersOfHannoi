@@ -11,12 +11,13 @@ Stack::Stack()
 {
 
 }
-/*
+
 Stack::~Stack()
 {
 	// delete data;
+
 }
-*/
+
 
 void Stack::push(void* inData)
 {

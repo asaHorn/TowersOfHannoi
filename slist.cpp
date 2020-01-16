@@ -1,5 +1,6 @@
 #include "slist.h"
 #include <iostream>
+#include <disk.h>
 
 /*
 
@@ -9,7 +10,7 @@ Class Library File
 class Node{
   friend class slist;
   private:
-    Airport* data;
+    Disk* data;
     Node* next;
   public:
     Node(){
@@ -36,7 +37,7 @@ slist::~slist(){
 };
 
 // add(value)       //Adds a new value to the end of this list.
-void slist::add(Airport* val){
+void slist::add(Disk* val){
   Node* last = this->head;
 
   Node* add = new Node;   //make new node with data and set last to point at it
@@ -78,7 +79,7 @@ bool slist::equals(slist* list){
 }
 
 //get(index)        //Returns the element at the specified index in this list.
-Airport* slist::get(int index){
+Disk* slist::get(int index){
   Node* cur = head;
 
   for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from
@@ -93,7 +94,7 @@ Airport* slist::get(int index){
 }
 
 //insert(index, value)    //Inserts the element into this list before the specified index.
-void slist::insert(int index, Airport* val){
+void slist::insert(int index, Disk* val){
   Node* cur = head;
 
   for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from
@@ -136,7 +137,7 @@ void slist::exchg(int index1, int index2){
     cout << "Error bad input to function |exchg| \n   Value: " << index1 << "\n   Value: " << index2 << "\n size:" << length << "\n";
   }
   
-  Airport* hold;
+  Disk* hold;
   
   hold = i1->data;  //switch data
   i1->data = i2->data;
@@ -207,7 +208,7 @@ void slist::remove(int index){
 }
 
 // set(index, value)    //Replaces the element at the specified index in this list with a new value.
-void slist::set(int index, Airport* val){
+void slist::set(int index, Disk* val){
   Node* cur = head;
 
   for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from

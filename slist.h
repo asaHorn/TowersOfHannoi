@@ -1,20 +1,24 @@
 using namespace std;
 #include<string>
+#include "disc.h"
 /*
 
 Header file for single linked list class library
 
 */
-class Airport{
-public:
-    char    code[5];
-    double   longitude;
-    double   latitude;
-    double   distance;
 
-    string toString();
+class Node{
+  friend class slist;
+  private:
+    Disc* data;
+    Node* next;
+  public:
+    Node(){
+      data = NULL;
+      next = NULL;
+
+    }
 };
-class Node;
 
 class slist{
   private:
@@ -26,7 +30,7 @@ class slist{
     ~slist();
 
     // add(value)       //Adds a new value to the end of this list.
-    void add(Airport* data);
+    void add(Disc* data);
 
     // clear()          //Removes all elements from this list.
     void clear();
@@ -35,10 +39,10 @@ class slist{
     bool equals(slist* list);
 
     //get(index)        //Returns the element at the specified index in this list.
-    Airport* get(int i);
+    Disc* get(int i);
 
     //insert(index, value)    //Inserts the element into this list before the specified index.
-    void insert(int i, Airport* data);
+    void insert(int i, Disc* data);
 
     //exchg(index1, index2)   //Switches the payload data of specified indexex.
     void exchg(int i1, int i2);
@@ -56,7 +60,7 @@ class slist{
     void remove(int i);
 
     // set(index, value)    //Replaces the element at the specified index in this list with a new value.
-    void set(int i, Airport* data);
+    void set(int i, Disc* data);
 
     // size()         //Returns the number of elements in this list.
     int size();
