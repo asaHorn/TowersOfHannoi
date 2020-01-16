@@ -5,6 +5,8 @@
 #include "disc.h"
 using namespace std;
 
+// internal linked list
+
 Stack::Stack()
 {
 
