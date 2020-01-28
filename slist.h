@@ -1,34 +1,73 @@
+using namespace std;
+#include<string>
+#include "disc.h"
 /*
 
 Header file for single linked list class library
 
 */
 
+class Node{
+  friend class slist;
+  private:
+    Disc* data;
+    Node* next;
+  public:
+    Node(){
+      data = NULL;
+      next = NULL;
 
-// add(value)				//Adds a new value to the end of this list.
+    }
+};
 
-// clear()					//Removes all elements from this list.
+class slist{
+  private:
+    Node* head;
+    int length;
 
-// equals(list)				//Returns true if the two lists contain the same elements in the same order.
+  public:
+    slist();
+    ~slist();
 
-//get(index)				//Returns the element at the specified index in this list.
+    // add(value)       //Adds a new value to the end of this list.
+    void add(Disc* data);
 
-//insert(index, value)		//Inserts the element into this list before the specified index.
+    // clear()          //Removes all elements from this list.
+    void clear();
 
-//exchg(index1, index2)		//Switches the payload data of specified indexex.
+    // equals(list)       //Returns true if the two lists contain the same elements in the same order.
+    bool equals(slist* list);
 
-//swap(index1,index2)		//Swaps node located at index1 with node at index2
+    //get(index)        //Returns the element at the specified index in this list.
+    Disc* get(int i);
 
-// isEmpty()				//Returns true if this list contains no elements.
+    //insert(index, value)    //Inserts the element into this list before the specified index.
+    void insert(int i, Disc* data);
 
-// mapAll(fn)				//Calls the specified function on each element of the linkedlist in ascending index order.
+    //exchg(index1, index2)   //Switches the payload data of specified indexex.
+    void exchg(int i1, int i2);
 
-// remove(index)			//Removes the element at the specified index from this list.
+    //swap(index1,index2)   //Swaps node located at index1 with node at index2
+    void swap(int i1, int i2);
 
-// set(index, value)		//Replaces the element at the specified index in this list with a new value.
+    // isEmpty()        //Returns true if this list contains no elements.
+    bool isEmpty();
 
-// size()					//Returns the number of elements in this list.
+    // mapAll(fn)       //Calls the specified function on each element of the linkedlist in ascending index order.
+    void mapAll(int (*fn)() );
 
-// subList(start, length)	//Returns a new list containing elements from a sub-range of this list.
+    // remove(index)      //Removes the element at the specified index from this list.
+    void remove(int i);
 
-// toString()				//Converts the list to a printable string representation.
+    // set(index, value)    //Replaces the element at the specified index in this list with a new value.
+    void set(int i, Disc* data);
+
+    // size()         //Returns the number of elements in this list.
+    int size();
+
+    // subList(start, length) //Returns a new list containing elements from a sub-range of this list.
+    slist* subList(int is, int ie);
+
+    // toString()       //Converts the list to a printable string representation.
+    string toString();
+};

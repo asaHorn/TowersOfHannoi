@@ -23,9 +23,14 @@ void toh(int n)
 		cout << d->toString();
         t1->push(d);
     }
+<<<<<<< HEAD
 
 	// ****  Your Tower of Hanoi solution!
+=======
+>>>>>>> dev
 
+	// ****  Your Tower of Hanoi solution!
+  t1.display();
 
 }
 int main()

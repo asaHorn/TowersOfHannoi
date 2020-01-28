@@ -1,5 +1,9 @@
 #ifndef _Stack_H_
 #define _Stack_H_
+<<<<<<< HEAD
+=======
+#include "slist.h"
+>>>>>>> dev
 
 class Stack
 {

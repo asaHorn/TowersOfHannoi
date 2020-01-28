@@ -5,6 +5,7 @@
 #include "disc.h"
 using namespace std;
 
+<<<<<<< HEAD
 Stack::Stack()
 {
 
@@ -23,16 +24,51 @@ void Stack::push(void* inData)
 void* Stack::pop()
 {
 	// your code
+=======
+// internal linked list
+
+Stack::Stack()
+{
+	private:
+		slist tower;
+}
+
+Stack::~Stack()
+{
+	// delete data;
+	delete tower;
+}
+
+
+void Stack::push(void* inData)
+{
+	tower.add(inData);
+}
+void* Stack::pop()
+{
+	void* out = tower.get(tower.size());
+	tower.remove(tower.size())
+	return out;
+>>>>>>> dev
 }
 
 void* Stack::top()
 {
+<<<<<<< HEAD
 	// your code
+=======
+	return tower.get(tower.size());
+>>>>>>> dev
 }
 
 bool Stack::empty()
 {
+<<<<<<< HEAD
 	// your code
+=======
+	delete tower;
+	tower = new slist;
+>>>>>>> dev
 }
 
 void Stack::display()
