@@ -1,9 +1,7 @@
 #ifndef _Stack_H_
 #define _Stack_H_
-<<<<<<< HEAD
-=======
 #include "slist.h"
->>>>>>> dev
+
 
 class Stack
 {
@@ -18,6 +16,7 @@ class Stack
 
 	public:
 		Stack();					// Construct stack
+		~Stack            // Destruct stack
 		void push(void* inData);	// Add element to top of stack
 		void* pop();				// Return element at top of stack and remove from top
 		void* top();				// Return element at top of stack
