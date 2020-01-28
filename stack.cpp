@@ -9,33 +9,37 @@ using namespace std;
 
 Stack::Stack()
 {
-
+	private:
+		slist tower;
 }
 
 Stack::~Stack()
 {
 	// delete data;
-
+	delete tower;
 }
 
 
 void Stack::push(void* inData)
 {
-	// your code
+	tower.add(inData);
 }
 void* Stack::pop()
 {
-	// your code
+	void* out = tower.get(tower.size());
+	tower.remove(tower.size())
+	return out;
 }
 
 void* Stack::top()
 {
-	// your code
+	return tower.get(tower.size());
 }
 
 bool Stack::empty()
 {
-	// your code
+	delete tower;
+	tower = new slist;
 }
 
 void Stack::display()

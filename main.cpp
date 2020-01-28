@@ -25,7 +25,7 @@ void toh(int n)
     }
 
 	// ****  Your Tower of Hanoi solution!
-
+  t1.display();
 
 }
 int main()
