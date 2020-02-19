@@ -1,24 +1,12 @@
 #include "slist.h"
 #include <iostream>
-#include <disk.h>
+#include "disc.h"
 
 /*
 
 Class Library File
 
 */
-class Node{
-  friend class slist;
-  private:
-    Disk* data;
-    Node* next;
-  public:
-    Node(){
-      data = NULL;
-      next = NULL;
-
-    }
-};
 
 // Constructor
 slist::slist(){
@@ -28,6 +16,7 @@ slist::slist(){
 
 // Destructor
 slist::~slist(){
+	cout << "destroying slist"; //debug
   Node* cur = this->head;
   for(int i=0; i<length; i++){  //iterate through head to last element and delete everything
     Node* next = cur->next;
@@ -37,8 +26,8 @@ slist::~slist(){
 };
 
 // add(value)       //Adds a new value to the end of this list.
-void slist::add(Disk* val){
-  Node* last = this->head;
+void slist::add(void* val){
+	Node* last = this->head;
 
   Node* add = new Node;   //make new node with data and set last to point at it
   add->data = val;
@@ -79,7 +68,7 @@ bool slist::equals(slist* list){
 }
 
 //get(index)        //Returns the element at the specified index in this list.
-Disk* slist::get(int index){
+void* slist::get(int index){
   Node* cur = head;
 
   for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from
@@ -89,12 +78,12 @@ Disk* slist::get(int index){
       return cur->data;
     }
   }
-  cout << "Error bad input to function |get|\n  Value: " << index <<  "\n length:" << length <<"\n";
+  cout << "Error bad input to function |get|\n  Value: " << index <<  "\n length: " << length <<"\n";
   return NULL;
 }
 
 //insert(index, value)    //Inserts the element into this list before the specified index.
-void slist::insert(int index, Disk* val){
+void slist::insert(int index, void* val){
   Node* cur = head;
 
   for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from
@@ -134,10 +123,10 @@ void slist::exchg(int index1, int index2){
   }
   
   if(i1 == NULL || i2 == NULL){
-    cout << "Error bad input to function |exchg| \n   Value: " << index1 << "\n   Value: " << index2 << "\n size:" << length << "\n";
+    cout << "Error bad input to function |exchg| \n   Value: " << index1 << "\n   Value: " << index2 << "\n size: " << length << "\n";
   }
   
-  Disk* hold;
+  void* hold;
   
   hold = i1->data;  //switch data
   i1->data = i2->data;
@@ -199,7 +188,7 @@ void slist::remove(int index){
       }
 
       length--;     //removal
-      delete(&cur);
+      //delete(&cur);  |||||THIS IS COMMENTED OUT BECAUSE IT IS BUGGED AND I DON"T THINK IT IS NECISARRY IT COULD CAUSE FUTURE BUGS OR BE A SYMPOM OF LARGER ISSUES||||
 
       return;                //in this contex just stops while returning void
     }
@@ -208,7 +197,7 @@ void slist::remove(int index){
 }
 
 // set(index, value)    //Replaces the element at the specified index in this list with a new value.
-void slist::set(int index, Disk* val){
+void slist::set(int index, void* val){
   Node* cur = head;
 
   for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from
@@ -246,15 +235,16 @@ slist* slist::subList(int sIn, int fIn){
   return justSomeDataThatIUsedToKnow; //NOW YOUR JUST SOME DATA THAT I USED TO KNOW
 }
 
-// toString()       //Converts the list to a printable string representation.
-string slist::toString(){
-  Node* cur = head;
-  string str = "";
+ // print()       //prints string representation of list.
+ void slist::print(){
+   Node* cur = head;
+	 cout << "Values in this list:\n";
 
-  for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from
-    cur = cur->next;
+   for(int i=0; i<length; i++){ //iterate through all values, so that bad input is protected from
+     cur = cur->next;
 
-    str += cur->data->toString();
-  }
-  return str;
-}
+     cout << cur->data << " ";
+   }
+
+	 cout << "\n";
+ }
